@@ -361,7 +361,7 @@ function EditProductModal({
     if (!name.trim() || Number.isNaN(p) || p < 0 || Number.isNaN(s) || s < 0) return
     const images = imagesStr
       .split(/[\n,]/)
-      .map((u) => u.trim())
+      .map((u: string) => u.trim())
       .filter(Boolean)
     onSave({
       name: name.trim(),
