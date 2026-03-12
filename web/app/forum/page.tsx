@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -22,7 +22,7 @@ const presetLocations = [
   '觀塘, 香港',
 ]
 
-export default function ForumPage() {
+function ForumPageContent() {
   const { t } = useLanguage()
   const [posts, setPosts] = useState<Post[]>(demoPosts)
   const [newPostContent, setNewPostContent] = useState('')
@@ -354,5 +354,19 @@ export default function ForumPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ForumPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-calico-white-50 pb-32 flex items-center justify-center text-calico-black-500">
+          載入中...
+        </div>
+      }
+    >
+      <ForumPageContent />
+    </Suspense>
   )
 }
