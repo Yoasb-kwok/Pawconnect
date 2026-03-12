@@ -26,7 +26,7 @@ interface PetCardProps {
       firstName: string
       lastName: string
       avatar?: string
-      gender?: 'male' | 'female'
+      gender?: 'male' | 'female' | string
     }
   }
   onSwipe?: (direction: 'left' | 'right' | 'down') => void
