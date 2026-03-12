@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-calico-black-700 bg-gradient-to-br from-calico-white-50 via-calico-orange-50 to-calico-white-100;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 移动端优化 */
+  @media (max-width: 640px) {
+    body {
+      @apply text-sm;
+    }
+  }
+  
+  /* Safe area for mobile devices */
+  .safe-area-inset {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer components {
+  /* 肉球按钮样式 - 三色貓主題 */
+  .btn-paw {
+    @apply px-6 py-3 bg-calico-orange-500 text-white rounded-full font-semibold 
+           shadow-lg hover:bg-calico-orange-600 active:scale-95 
+           transition-all duration-200 touch-manipulation;
+  }
+  
+  /* 卡片样式 - 現代化圓角設計（肉球形狀） */
+  .card-paw {
+    @apply bg-calico-white-50 rounded-3xl shadow-lg hover:shadow-xl 
+           transition-all duration-300 border border-calico-white-300;
+  }
+  
+  /* 肉球形狀的圓角設計 */
+  .paw-shape {
+    @apply rounded-3xl;
+    border-radius: 2rem 2rem 2rem 0.5rem; /* 模擬肉球的不規則形狀 */
+  }
+  
+  /* 触摸优化 */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* 隐藏滚动条但保持滚动功能 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* 触摸优化 */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}
